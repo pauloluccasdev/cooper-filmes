@@ -1,0 +1,39 @@
+# docker-compose.yml para frontend, backend e banco de dados
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./cooper-filme-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://backend:8080
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - database
+
+  database:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+
+volumes:
+  database_data:
