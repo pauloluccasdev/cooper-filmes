@@ -10,11 +10,11 @@ No backend, crie um arquivo `data.sql` (ou similar) dentro da pasta `resources` 
 #### **Arquivo `data.sql`**
 ```sql
 INSERT INTO users (id, email, password, role) VALUES 
-(1, 'analista@example.com', '$2a$10$hashedPassword1', 'ANALYST'),
-(2, 'revisor@example.com', '$2a$10$hashedPassword2', 'REVIEWER'),
-(3, 'aprovador1@example.com', '$2a$10$hashedPassword3', 'APPROVER'),
-(4, 'aprovador2@example.com', '$2a$10$hashedPassword4', 'APPROVER'),
-(5, 'aprovador3@example.com', '$2a$10$hashedPassword5', 'APPROVER');
+(1, 'analista@example.com', '$2a$10$hashedPassword1', 'ANALISTA'),
+(2, 'revisor@example.com', '$2a$10$hashedPassword2', 'REVISOR'),
+(3, 'aprovador1@example.com', '$2a$10$hashedPassword3', 'APROVADOR'),
+(4, 'aprovador2@example.com', '$2a$10$hashedPassword4', 'APROVADOR'),
+(5, 'aprovador3@example.com', '$2a$10$hashedPassword5', 'APROVADOR');
 ```
 
 > ⚠️ **Nota**: Substitua `hashedPasswordX` por senhas criptografadas usando bcrypt. Você pode gerar hashes com bibliotecas em Java, Node.js ou ferramentas online. Exemplo:
